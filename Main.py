@@ -1,4 +1,3 @@
-
 from typing import List
 
 # Clase para el nodo del árbol binario de búsqueda
