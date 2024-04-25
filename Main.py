@@ -9,7 +9,6 @@ class Node:
         self.count = 1  # Contador para el número de veces que aparece la palabra en este archivo
         self.files = {filename}  # Conjunto de nombres de archivos en los que aparece la palabra
 
-
 # Función para insertar una palabra en el árbol correspondiente al archivo
 def insert_word(root, word, filename):
     if root is None:
@@ -23,7 +22,6 @@ def insert_word(root, word, filename):
         root.count += 1
         root.files.add(filename)
     return root
-
 
 # Función para buscar una palabra en el árbol y devolver su frecuencia y en qué archivos aparece
 def search_word(root, word):
@@ -52,17 +50,12 @@ def process_file(filename):
                         root = insert_word(root, word, filename)  # Insertar palabras como hijos
     return root
 
-
-
-
-
 # Función para imprimir el árbol en orden
 def inorder_traversal(root, filename):
     if root:
         inorder_traversal(root.left, filename)
         print(root.data, root.count, filename)
         inorder_traversal(root.right, filename)
-
 
 # Función principal
 def main(files: List[str]):
@@ -84,13 +77,11 @@ def main(files: List[str]):
         else:
             print("Opción inválida. Por favor, ingrese una opción válida.")
 
-
 def display_menu():
     print("\nMenu:")
     print("1. Mostrar palabras en un archivo")
     print("2. Buscar una palabra en todos los archivos")
     print("3. Salir")
-
 
 def show_words_in_file(files: List[str], roots):
     print("Seleccione un archivo:")
@@ -104,7 +95,6 @@ def show_words_in_file(files: List[str], roots):
     else:
         print("Número de archivo inválido.")
 
-
 def search_word_in_files(files: List[str], roots):
     word = input("Ingrese la palabra a buscar: ").strip().lower()
     print(f"Buscando la palabra '{word}' en todos los archivos:")
@@ -114,7 +104,6 @@ def search_word_in_files(files: List[str], roots):
         total_count += count
         print(f"'{word}' aparece {count} veces en '{filename}'")
     print(f"\nLa palabra '{word}' aparece un total de {total_count} veces en todos los archivos.")
-
 
 if __name__ == "__main__":
     files = ["file1.txt", "file2.txt", "file3.txt", "file4.txt", "file5.txt",
