@@ -43,13 +43,18 @@ def process_file(filename):
     root = None
     with open(filename, 'r') as file:
         for line in file:
-            words = line.strip().split()  # Obtener las palabras de la línea
+            words = line.strip().split()
             for word in words:
-                word = word.strip().lower()  # Convertir la palabra a minúsculas y eliminar espacios vacíos al inicio y al final
-                if not word.isalpha():  # Ignorar palabras que no son alfabéticas
-                    continue
-                root = insert_word(root, word, filename)
+                word = word.strip().lower()
+                if word.isalpha():
+                    if root is None:
+                        root = Node(word, filename)
+                    else:
+                        root = insert_word(root, word, filename)  # Insertar palabras como hijos
     return root
+
+
+
 
 
 # Función para imprimir el árbol en orden
